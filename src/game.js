@@ -15,6 +15,14 @@ class Game {
         this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
     }
 
+    gameValidation(numberOfRows, numberOfColumns, numberOfBombs) {
+        //if numberOfRows * numberOfColums is less than numberOfBombs, console log "You need more tiles than bombs!"
+        let tiles = numberOfRows * numberOfColumns;
+        if (tiles < numberOfBombs) {
+            console.log("You need more tiles than bombs!");
+        } 
+    }
+
     playMove(rowIndex, columnIndex) {
         this._board.flipTile(rowIndex, columnIndex);
         if (this._board.playerBoard[rowIndex][columnIndex] === 'B') {

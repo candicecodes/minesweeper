@@ -7,30 +7,16 @@
 // game.playMove(0, 1);
 // game.playMove(1, 2);
 // When done run `.exit`
+//if an invalid input is given, you must create a new variable name because you can't declare variables that have the same name when you're creating a new Game object, so create something like let newGame = new Game(...);
 
 import { Board } from './board';
 
 class Game {
     constructor(numberOfRows, numberOfColumns, numberOfBombs) {
-        
-        // this.gameValidation(numberOfRows, numberOfColumns, numberOfBombs);
         let tiles = numberOfRows * numberOfColumns;
-        if (tiles < numberOfBombs) {
-            console.log("You need more tiles than bombs!"); 
-        } else {
-        this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
-        }
+        (tiles < numberOfBombs) ? console.log("You need more tiles than bombs!")
+        : this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
     }
-
-    // gameValidation(numberOfRows, numberOfColumns, numberOfBombs) {
-        
-    //     let tiles = numberOfRows * numberOfColumns;
-    //     if (tiles < numberOfBombs) {
-    //         console.log("You need more tiles than bombs!"); 
-    //         Game._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);          
-    //     }
-
-    // }
 
     // getTime() {
     //     //start time is 

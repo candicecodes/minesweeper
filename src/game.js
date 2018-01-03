@@ -13,19 +13,24 @@ import { Board } from './board';
 class Game {
     constructor(numberOfRows, numberOfColumns, numberOfBombs) {
         
-        this.gameValidation(numberOfRows, numberOfColumns, numberOfBombs);
-        this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
-    }
-
-    gameValidation(numberOfRows, numberOfColumns, numberOfBombs) {
-        
+        // this.gameValidation(numberOfRows, numberOfColumns, numberOfBombs);
         let tiles = numberOfRows * numberOfColumns;
         if (tiles < numberOfBombs) {
             console.log("You need more tiles than bombs!"); 
-            Game._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);          
+        } else {
+        this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
         }
-
     }
+
+    // gameValidation(numberOfRows, numberOfColumns, numberOfBombs) {
+        
+    //     let tiles = numberOfRows * numberOfColumns;
+    //     if (tiles < numberOfBombs) {
+    //         console.log("You need more tiles than bombs!"); 
+    //         Game._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);          
+    //     }
+
+    // }
 
     // getTime() {
     //     //start time is 

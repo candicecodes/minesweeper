@@ -12,16 +12,22 @@ import { Board } from './board';
 
 class Game {
     constructor(numberOfRows, numberOfColumns, numberOfBombs) {
-        this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
+        this.gameValidation(numberOfRows, numberOfColumns, numberOfBombs);
+        this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);        
     }
 
     gameValidation(numberOfRows, numberOfColumns, numberOfBombs) {
-        //if numberOfRows * numberOfColums is less than numberOfBombs, console log "You need more tiles than bombs!"
         let tiles = numberOfRows * numberOfColumns;
         if (tiles < numberOfBombs) {
             console.log("You need more tiles than bombs!");
+            console.log(this);
         } 
     }
+
+    // getTime() {
+    //     //start time is 
+    //     //end time is when player wins or loses
+    // }
 
     playMove(rowIndex, columnIndex) {
         this._board.flipTile(rowIndex, columnIndex);

@@ -44,6 +44,16 @@ export class Board {
         return this._numberOfTiles !== this._numberOfBombs;
     }
 
+    //attempting to create a timer method, call timer() when board is generated? 
+    timer() {
+        let time = 0;
+        setTimeout(function() {
+            time++;
+            timer();            
+        }, 1000);
+        console.log(time);
+    }
+
     print() {
         console.log(this._playerBoard.map(row => row.join(' | ')).join("\n"))
         // console.log("\nBomb board: ");
@@ -60,6 +70,8 @@ export class Board {
             board.push(row);
         }
         return board;
+        
+        
     };
 
     static generateBombBoard(numberOfRows, numberOfColumns, numberOfBombs) {

@@ -1,13 +1,33 @@
-export class Timer {
-    constructor() {
+// export class Timer {
+//     constructor(results) {
+//         this.running = false;
+//         this.results = results;
 
-    }
+//     }
 
-    reset() {
-        this.times = [0, 0, 0];
-    }
+//     start() {
+//         if(!this.time) {
+//             this.time = performance.now();
+//         }
+//         if(!this.running) {
+//             this.running = true;
+//         }
+//     }
 
-    format(times) {
+//     stop() {
+//         this.running = false;
+//         this.time = null;
+//     }
+
+    // reset() {
+    //     this.times = [0, 0, 0];
+    // }
+
+    // format(times) {
         
-    }
-}
+    // }
+// }
+
+// export class Timer {
+
+// }

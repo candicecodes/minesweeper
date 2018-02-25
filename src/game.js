@@ -19,10 +19,10 @@ class Game {
         : this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
     }
 
-    // getTime() {
+
     //     //start time is board is created
     //     //end time is when player wins or loses
-    // }
+
 
     playMove(rowIndex, columnIndex) {
         this._board.flipTile(rowIndex, columnIndex);

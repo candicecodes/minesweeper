@@ -31,13 +31,13 @@ class Game {
             console.log("Game Over!");
             let timeTwo = Date.now();
             console.log(timeTwo);
-            console.log(`Time: ${timeTwo - timeOne}`);
+            console.log(`Time: ${timeTwo - this.timeOne}`);
             this._board.print();
         } else if (!this._board.hasSafeTiles()) {
             console.log("You are a winner!");
             let timeTwo = Date.now();
             console.log(timeTwo);
-            console.log(`Time: ${timeTwo - timeOne}`);
+            console.log(`Time: ${timeTwo - this.timeOne}`);
             this._board.print();
         } else {
             console.log(`Current Board:`);

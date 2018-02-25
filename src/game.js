@@ -15,7 +15,7 @@ import { Board } from './board';
 class Game {
     constructor(numberOfRows, numberOfColumns, numberOfBombs) {
         let tiles = numberOfRows * numberOfColumns;
-        let timeOne = Date.now();
+        this.timeOne = Date.now();
         (tiles < numberOfBombs) ? console.log("You need more tiles than bombs!")
         : this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
     }

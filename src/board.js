@@ -45,13 +45,14 @@ export class Board {
     }
 
     //attempting to create a timer method, call timer() when board is generated? 
+
+    
     timer() {
         let time = 0;
-        setTimeout(function() {
+        setInterval(function() {
             time++;
-            timer();            
         }, 1000);
-        console.log(time);
+        console.log(time);        
     }
 
     print() {

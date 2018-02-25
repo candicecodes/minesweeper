@@ -10,7 +10,7 @@
 //if an invalid input is given, you must create a new variable name because you can't declare variables that have the same name when you're creating a new Game object, so create something like let newGame = new Game(...);
 
 import { Board } from './board';
-import { Timer } from './timer';
+
 
 class Game {
     constructor(numberOfRows, numberOfColumns, numberOfBombs) {

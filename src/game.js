@@ -15,6 +15,7 @@ import { Board } from './board';
 class Game {
     constructor(numberOfRows, numberOfColumns, numberOfBombs) {
         let tiles = numberOfRows * numberOfColumns;
+        let timeOne = Date.now();
         (tiles < numberOfBombs) ? console.log("You need more tiles than bombs!")
         : this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
     }
@@ -28,9 +29,15 @@ class Game {
         this._board.flipTile(rowIndex, columnIndex);
         if (this._board.playerBoard[rowIndex][columnIndex] === 'B') {
             console.log("Game Over!");
+            let timeTwo = Date.now();
+            console.log(timeTwo);
+            console.log(`Time: ${timeTwo - timeOne}`);
             this._board.print();
         } else if (!this._board.hasSafeTiles()) {
             console.log("You are a winner!");
+            let timeTwo = Date.now();
+            console.log(timeTwo);
+            console.log(`Time: ${timeTwo - timeOne}`);
             this._board.print();
         } else {
             console.log(`Current Board:`);

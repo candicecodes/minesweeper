@@ -15,33 +15,55 @@ import { Board } from './board';
 class Game {
     constructor(numberOfRows, numberOfColumns, numberOfBombs) {
         let tiles = numberOfRows * numberOfColumns;
+        //start time when board is created
         this.timeOne = Date.now();
         (tiles < numberOfBombs) ? console.log("You need more tiles than bombs!")
         : this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
     }
 
 
-    //     //start time is board is created
-    //     //end time is when player wins or loses
-
 
     playMove(rowIndex, columnIndex) {
         this._board.flipTile(rowIndex, columnIndex);
         if (this._board.playerBoard[rowIndex][columnIndex] === 'B') {
             console.log("Game Over!");
+            //end time when player loses
+            // let timeTwo = Date.now();
+            // console.log(timeTwo);
+            // console.log(`Time: ${timeTwo - this.timeOne}`);
+            // this.displayTime();
             let timeTwo = Date.now();
-            console.log(timeTwo);
-            console.log(`Time: ${timeTwo - this.timeOne}`);
+            let finalTime = timeTwo - this.timeOne;
+            let minute = "" + finalTime.getMinutes(); if (minute.length == 1) { minute = "0" + minute; };
+            let second = "" + finalTime.getSeconds(); if (second.length == 1) { second = "0" + second; };
+            console.log(`${minute}:${second}`);
             this._board.print();
         } else if (!this._board.hasSafeTiles()) {
             console.log("You are a winner!");
+            //end time when player wins
+            // let timeTwo = Date.now();
+            // console.log(timeTwo);
+            // console.log(`Time: ${timeTwo - this.timeOne}`);
+            // this.displayTime();
             let timeTwo = Date.now();
-            console.log(timeTwo);
-            console.log(`Time: ${timeTwo - this.timeOne}`);
+            let finalTime = timeTwo - this.timeOne;
+            let minute = "" + finalTime.getMinutes(); if (minute.length == 1) { minute = "0" + minute; };
+            let second = "" + finalTime.getSeconds(); if (second.length == 1) { second = "0" + second; };
+            console.log(`${minute}:${second}`);
             this._board.print();
         } else {
             console.log(`Current Board:`);
             this._board.print();
         }
     }
+
+    //since the amount of time the game took needs to be displayed when a player wins or loses, maybe I should create a reusable function?
+    // displayTime() {
+    //     let timeTwo = Date.now();
+    //     let finalTime = timeTwo - this.timeOne;
+    //     let minute = "" + finalTime.getMinutes(); if (minute.length == 1) { minute = "0" + minute; };
+    //     let second = "" + finalTime.getSeconds(); if (second.length == 1) { second = "0" + second; };
+    //     console.log(`${minute}:${second}`);
+    // }
+
 }

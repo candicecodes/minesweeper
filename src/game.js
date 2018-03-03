@@ -28,28 +28,31 @@ class Game {
         if (this._board.playerBoard[rowIndex][columnIndex] === 'B') {
             console.log("Game Over!");
             //end time when player loses
-            // let timeTwo = Date.now();
-            // console.log(timeTwo);
-            // console.log(`Time: ${timeTwo - this.timeOne}`);
-            // this.displayTime();
             let timeTwo = Date.now();
-            let finalTime = timeTwo - this.timeOne;
-            let minute = "" + finalTime.getMinutes(); if (minute.length == 1) { minute = "0" + minute; };
-            let second = "" + finalTime.getSeconds(); if (second.length == 1) { second = "0" + second; };
-            console.log(`${minute}:${second}`);
+            let millisecondTime = timeTwo - this.timeOne;
+            console.log(timeTwo);
+            console.log(`Time: ${timeTwo - this.timeOne}`);
+            minutesSeconds(millisecondTime);
+            // this.displayTime();
+            // let timeTwo = Date.now();
+            // let finalTime = timeTwo - this.timeOne;
+            // let minute = "" + finalTime.getMinutes(); if (minute.length == 1) { minute = "0" + minute; };
+            // let second = "" + finalTime.getSeconds(); if (second.length == 1) { second = "0" + second; };
+            // console.log(`${minute}:${second}`);
             this._board.print();
         } else if (!this._board.hasSafeTiles()) {
             console.log("You are a winner!");
             //end time when player wins
-            // let timeTwo = Date.now();
-            // console.log(timeTwo);
-            // console.log(`Time: ${timeTwo - this.timeOne}`);
-            // this.displayTime();
             let timeTwo = Date.now();
-            let finalTime = timeTwo - this.timeOne;
-            let minute = "" + finalTime.getMinutes(); if (minute.length == 1) { minute = "0" + minute; };
-            let second = "" + finalTime.getSeconds(); if (second.length == 1) { second = "0" + second; };
-            console.log(`${minute}:${second}`);
+            let millisecondTime = timeTwo - this.timeOne;
+            console.log(timeTwo);
+            console.log(`Time: ${timeTwo - this.timeOne}`);
+            minutesSeconds(millisecondTime);
+            // let timeTwo = Date.now();
+            // let finalTime = timeTwo - this.timeOne;
+            // let minute = "" + finalTime.getMinutes(); if (minute.length == 1) { minute = "0" + minute; };
+            // let second = "" + finalTime.getSeconds(); if (second.length == 1) { second = "0" + second; };
+            // console.log(`${minute}:${second}`);
             this._board.print();
         } else {
             console.log(`Current Board:`);
@@ -65,5 +68,12 @@ class Game {
     //     let second = "" + finalTime.getSeconds(); if (second.length == 1) { second = "0" + second; };
     //     console.log(`${minute}:${second}`);
     // }
+
+    minutesSeconds(milliseconds) {
+        let minutes = Math.floor(milliseconds / 60000);
+        let seconds = ((milliseconds % 60000) / 1000).toFixed(0);
+        // return `${seconds === 60 ? minutes + 1:00 : mintues:${minutes}:`;
+        console.log((seconds == 60 ? (minutes + 1) + ":00" : minutes + ":" + (seconds < 10 ? "0" : "") + seconds));
+    }
 
 }

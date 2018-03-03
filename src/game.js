@@ -25,6 +25,16 @@ class Game {
 
     playMove(rowIndex, columnIndex) {
         this._board.flipTile(rowIndex, columnIndex);
+
+        //
+        function minutesSeconds(milliseconds) {
+            let minutes = Math.floor(milliseconds / 60000);
+            let seconds = ((milliseconds % 60000) / 1000).toFixed(0);
+            // return `${seconds === 60 ? minutes + 1:00 : mintues:${minutes}:`;
+            console.log((seconds == 60 ? (minutes + 1) + ":00" : minutes + ":" + (seconds < 10 ? "0" : "") + seconds));
+        }
+        //
+
         if (this._board.playerBoard[rowIndex][columnIndex] === 'B') {
             console.log("Game Over!");
             //end time when player loses
@@ -33,12 +43,6 @@ class Game {
             console.log(timeTwo);
             console.log(`Time: ${timeTwo - this.timeOne}`);
             minutesSeconds(millisecondTime);
-            // this.displayTime();
-            // let timeTwo = Date.now();
-            // let finalTime = timeTwo - this.timeOne;
-            // let minute = "" + finalTime.getMinutes(); if (minute.length == 1) { minute = "0" + minute; };
-            // let second = "" + finalTime.getSeconds(); if (second.length == 1) { second = "0" + second; };
-            // console.log(`${minute}:${second}`);
             this._board.print();
         } else if (!this._board.hasSafeTiles()) {
             console.log("You are a winner!");
@@ -48,32 +52,10 @@ class Game {
             console.log(timeTwo);
             console.log(`Time: ${timeTwo - this.timeOne}`);
             minutesSeconds(millisecondTime);
-            // let timeTwo = Date.now();
-            // let finalTime = timeTwo - this.timeOne;
-            // let minute = "" + finalTime.getMinutes(); if (minute.length == 1) { minute = "0" + minute; };
-            // let second = "" + finalTime.getSeconds(); if (second.length == 1) { second = "0" + second; };
-            // console.log(`${minute}:${second}`);
             this._board.print();
         } else {
             console.log(`Current Board:`);
             this._board.print();
         }
     }
-
-    //since the amount of time the game took needs to be displayed when a player wins or loses, maybe I should create a reusable function?
-    // displayTime() {
-    //     let timeTwo = Date.now();
-    //     let finalTime = timeTwo - this.timeOne;
-    //     let minute = "" + finalTime.getMinutes(); if (minute.length == 1) { minute = "0" + minute; };
-    //     let second = "" + finalTime.getSeconds(); if (second.length == 1) { second = "0" + second; };
-    //     console.log(`${minute}:${second}`);
-    // }
-
-    minutesSeconds(milliseconds) {
-        let minutes = Math.floor(milliseconds / 60000);
-        let seconds = ((milliseconds % 60000) / 1000).toFixed(0);
-        // return `${seconds === 60 ? minutes + 1:00 : mintues:${minutes}:`;
-        console.log((seconds == 60 ? (minutes + 1) + ":00" : minutes + ":" + (seconds < 10 ? "0" : "") + seconds));
-    }
-
 }

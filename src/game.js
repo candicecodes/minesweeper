@@ -19,6 +19,11 @@ class Game {
         this.timeOne = Date.now();
         (tiles < numberOfBombs) ? console.log("You need more tiles than bombs!")
         : this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
+        if(numberOfRows === 0 || numberOfColumns === 0) {
+            console.log("Rows or Columns cannot be 0!")
+        } else {
+            this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
+        }
     }
 
 
